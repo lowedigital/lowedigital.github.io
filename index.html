@@ -1,12 +1,464 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lowe Digital</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Caleb Lowe Digital — Websites, automation systems, and digital tools that help businesses grow, save time, and get more customers." />
+  <title>Caleb Lowe Digital</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <h1>Welcome to Lowe Digital</h1>
-    <p>Creating value for businesses through modern digital solutions.</p>
+
+  <!-- ─── NAV ─────────────────────────────────────────────── -->
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="#hero" class="nav__logo">
+        <span class="logo-mark">CL</span>
+        <span class="logo-text">Caleb Lowe Digital</span>
+      </a>
+      <ul class="nav__links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#projects">Work</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#contact" class="nav__cta">Let's Talk</a></li>
+      </ul>
+      <button class="nav__hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav__mobile" id="mobileMenu">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#projects">Work</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#contact">Let's Talk</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ─── HERO ─────────────────────────────────────────────── -->
+  <section class="hero" id="hero">
+    <div class="hero__bg">
+      <div class="hero__gradient"></div>
+      <div class="hero__grid"></div>
+      <div class="hero__orb hero__orb--1"></div>
+      <div class="hero__orb hero__orb--2"></div>
+    </div>
+    <div class="container hero__content">
+      <div class="hero__badge fade-up">Available for New Projects</div>
+      <h1 class="hero__headline fade-up">
+        Websites and systems<br />
+        that help businesses<br />
+        <span class="gradient-text">actually grow.</span>
+      </h1>
+      <p class="hero__sub fade-up">
+        I design and build modern websites, automation tools, and digital systems for
+        small businesses and startups — so you spend less time on busywork and more
+        time winning customers.
+      </p>
+      <div class="hero__actions fade-up">
+        <a href="#projects" class="btn btn--primary">View Work</a>
+        <a href="#contact" class="btn btn--ghost">Contact Me</a>
+      </div>
+      <div class="hero__social-proof fade-up">
+        <div class="proof-item">
+          <span class="proof-number">15+</span>
+          <span class="proof-label">Projects Delivered</span>
+        </div>
+        <div class="proof-divider"></div>
+        <div class="proof-item">
+          <span class="proof-number">100%</span>
+          <span class="proof-label">Client Satisfaction</span>
+        </div>
+        <div class="proof-divider"></div>
+        <div class="proof-item">
+          <span class="proof-number">48hr</span>
+          <span class="proof-label">Response Time</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero__scroll-indicator">
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ─── ABOUT / VALUE ────────────────────────────────────── -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about__grid">
+        <div class="about__left reveal">
+          <div class="section-label">About</div>
+          <h2 class="section-title">Built for businesses that want results, not just a website.</h2>
+        </div>
+        <div class="about__right reveal">
+          <p class="about__body">
+            Most businesses struggle with three things: an outdated online presence, manual
+            processes that eat up hours every week, and no clear system for bringing in new
+            customers. I fix all three.
+          </p>
+          <p class="about__body">
+            Whether you need a high-converting website, a custom automation that saves your
+            team 10 hours a week, or an AI-powered tool built for your exact workflow — I
+            design and build it with one goal in mind: measurable growth for your business.
+          </p>
+          <div class="about__pillars">
+            <div class="pillar">
+              <div class="pillar__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div>
+                <strong>Speed-focused</strong>
+                <p>From kickoff to launch, I move fast without cutting corners.</p>
+              </div>
+            </div>
+            <div class="pillar">
+              <div class="pillar__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div>
+                <strong>Results-driven</strong>
+                <p>Every decision is tied to leads, conversions, or efficiency.</p>
+              </div>
+            </div>
+            <div class="pillar">
+              <div class="pillar__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div>
+                <strong>Built to scale</strong>
+                <p>Systems that grow with you, not ones you outgrow in 6 months.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SERVICES ─────────────────────────────────────────── -->
+  <section class="services" id="services">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">Services</div>
+        <h2 class="section-title">Everything you need to compete online.</h2>
+        <p class="section-sub">End-to-end digital solutions, from first impression to full automation.</p>
+      </div>
+      <div class="services__grid">
+
+        <div class="service-card reveal">
+          <div class="service-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3>Website Design &amp; Development</h3>
+          <p>Custom, conversion-optimized websites built from scratch. Fast, mobile-first, and designed to turn visitors into paying customers.</p>
+          <div class="service-card__tags">
+            <span>HTML/CSS/JS</span><span>Responsive</span><span>SEO-Ready</span>
+          </div>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="service-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3>Business Automation Systems</h3>
+          <p>Eliminate repetitive tasks with smart workflows and integrations. Connect your tools, automate your processes, and reclaim your time.</p>
+          <div class="service-card__tags">
+            <span>Zapier</span><span>Make</span><span>APIs</span>
+          </div>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="service-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3>AI Integrations &amp; Tools</h3>
+          <p>Custom AI-powered tools built into your website or workflow — chatbots, content generators, lead qualifiers, and more.</p>
+          <div class="service-card__tags">
+            <span>OpenAI</span><span>Langchain</span><span>Embeddings</span>
+          </div>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="service-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3>Branding &amp; Digital Presence</h3>
+          <p>Cohesive brand identity — logo, color system, typography — combined with a fully set up digital presence across key platforms.</p>
+          <div class="service-card__tags">
+            <span>Logo</span><span>Brand Kit</span><span>Social Setup</span>
+          </div>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="service-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3>SEO &amp; Online Growth</h3>
+          <p>Get found by the right people. On-page SEO, technical optimization, and local search strategies that compound over time.</p>
+          <div class="service-card__tags">
+            <span>On-Page SEO</span><span>Local SEO</span><span>Analytics</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── PROJECTS ──────────────────────────────────────────── -->
+  <section class="projects" id="projects">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">Work</div>
+        <h2 class="section-title">Real systems. Real results.</h2>
+        <p class="section-sub">A sample of projects that moved the needle for clients.</p>
+      </div>
+      <div class="projects__grid">
+
+        <div class="project-card reveal">
+          <div class="project-card__header">
+            <div class="project-card__number">01</div>
+            <div class="project-card__label">Dashboard System</div>
+          </div>
+          <h3>Business Intelligence Dashboard</h3>
+          <p>A centralized operations dashboard for a service business — real-time KPIs, job tracking, and team performance visibility in one place.</p>
+          <div class="project-card__impact">
+            <div class="impact-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <span>Reduced reporting time by <strong>8 hours/week</strong></span>
+          </div>
+          <div class="project-card__stack">
+            <span>JavaScript</span><span>REST APIs</span><span>Chart.js</span><span>Node.js</span>
+          </div>
+          <a href="#contact" class="btn btn--outline">View Case Study →</a>
+        </div>
+
+        <div class="project-card reveal">
+          <div class="project-card__header">
+            <div class="project-card__number">02</div>
+            <div class="project-card__label">Lead Generation</div>
+          </div>
+          <h3>High-Converting Lead Website</h3>
+          <p>Custom landing page and multi-step funnel for a local contractor — built around their top services with clear CTAs and lead capture at every step.</p>
+          <div class="project-card__impact">
+            <div class="impact-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <span>3× increase in <strong>monthly lead volume</strong></span>
+          </div>
+          <div class="project-card__stack">
+            <span>HTML/CSS</span><span>JS</span><span>Netlify Forms</span><span>SEO</span>
+          </div>
+          <a href="#contact" class="btn btn--outline">View Case Study →</a>
+        </div>
+
+        <div class="project-card reveal">
+          <div class="project-card__header">
+            <div class="project-card__number">03</div>
+            <div class="project-card__label">Automation</div>
+          </div>
+          <h3>Automated Client Intake System</h3>
+          <p>End-to-end intake flow for a professional services firm — form submission triggers CRM entry, Slack alert, welcome email, and calendar booking automatically.</p>
+          <div class="project-card__impact">
+            <div class="impact-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <span>Saved <strong>5+ hours/week</strong> of manual admin work</span>
+          </div>
+          <div class="project-card__stack">
+            <span>Make.com</span><span>Airtable</span><span>Typeform</span><span>APIs</span>
+          </div>
+          <a href="#contact" class="btn btn--outline">View Case Study →</a>
+        </div>
+
+        <div class="project-card reveal">
+          <div class="project-card__header">
+            <div class="project-card__number">04</div>
+            <div class="project-card__label">Brand Revamp</div>
+          </div>
+          <h3>Local Business Website Revamp</h3>
+          <p>Complete redesign for a local restaurant — modern visual identity, mobile-optimized layout, online menu, and Google Business integration for local search.</p>
+          <div class="project-card__impact">
+            <div class="impact-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <span>Top 3 local search rank in <strong>60 days</strong></span>
+          </div>
+          <div class="project-card__stack">
+            <span>HTML/CSS/JS</span><span>Local SEO</span><span>Google APIs</span>
+          </div>
+          <a href="#contact" class="btn btn--outline">View Case Study →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── PROCESS ───────────────────────────────────────────── -->
+  <section class="process" id="process">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">Process</div>
+        <h2 class="section-title">How we go from idea to outcome.</h2>
+        <p class="section-sub">A clear, collaborative process with no surprises.</p>
+      </div>
+      <div class="process__steps">
+
+        <div class="process-step reveal">
+          <div class="process-step__number">01</div>
+          <div class="process-step__connector"></div>
+          <div class="process-step__content">
+            <div class="process-step__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3>Discover</h3>
+            <p>We start by understanding your business, goals, customers, and current pain points. No cookie-cutter solutions — every project is built around your specific situation.</p>
+          </div>
+        </div>
+
+        <div class="process-step reveal">
+          <div class="process-step__number">02</div>
+          <div class="process-step__connector"></div>
+          <div class="process-step__content">
+            <div class="process-step__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3>Design</h3>
+            <p>I map out the solution — wireframes, architecture, content structure — and align with you before writing a single line of code. You know exactly what you're getting.</p>
+          </div>
+        </div>
+
+        <div class="process-step reveal">
+          <div class="process-step__number">03</div>
+          <div class="process-step__connector"></div>
+          <div class="process-step__content">
+            <div class="process-step__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3>Build</h3>
+            <p>Clean, performant code. I build iteratively and give you access to progress every step of the way. No black box — you see it coming together in real time.</p>
+          </div>
+        </div>
+
+        <div class="process-step reveal">
+          <div class="process-step__number">04</div>
+          <div class="process-step__content">
+            <div class="process-step__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3>Launch &amp; Improve</h3>
+            <p>We go live, measure what's working, and iterate. After launch, you're not left stranded — I'm available for updates, improvements, and scaling as your business grows.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CONTACT ───────────────────────────────────────────── -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="contact__grid">
+        <div class="contact__left reveal">
+          <div class="section-label">Contact</div>
+          <h2 class="section-title">Let's build something that grows your business.</h2>
+          <p class="contact__body">
+            Whether you have a full brief or just an idea — reach out. I'll respond within 48 hours
+            and we'll figure out if we're a good fit.
+          </p>
+          <div class="contact__links">
+            <a href="mailto:garrett@carloweproperties.com" class="contact__link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              garrett@carloweproperties.com
+            </a>
+          </div>
+          <div class="contact__availability">
+            <div class="availability-dot"></div>
+            <span>Currently available for new projects</span>
+          </div>
+        </div>
+        <div class="contact__right reveal">
+          <form class="contact-form" id="contactForm">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" placeholder="Your name" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="your@email.com" required />
+            </div>
+            <div class="form-group">
+              <label for="company">Company / Business <span class="optional">(optional)</span></label>
+              <input type="text" id="company" name="company" placeholder="Your business name" />
+            </div>
+            <div class="form-group">
+              <label for="message">What do you need?</label>
+              <textarea id="message" name="message" rows="5" placeholder="Tell me about your project, goals, or what problem you're trying to solve." required></textarea>
+            </div>
+            <button type="submit" class="btn btn--primary btn--full">
+              <span class="btn-text">Send Message</span>
+              <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <div class="form-success" id="formSuccess">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Message sent! I'll be in touch within 48 hours.
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ────────────────────────────────────────────── -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <a href="#hero" class="nav__logo">
+          <span class="logo-mark">CL</span>
+          <span class="logo-text">Caleb Lowe Digital</span>
+        </a>
+        <p>Websites and systems that help businesses grow.</p>
+      </div>
+      <nav class="footer__nav">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#projects">Work</a>
+        <a href="#process">Process</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+    <div class="container footer__bottom">
+      <p>© 2026 Caleb Lowe Digital. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
