@@ -63,8 +63,9 @@ We focus on outcomes — not prototypes.
 
 We’re open to collaboration and client work.
 
-**Email:** hello@calelowedigital.com  
+**Email:** clowe2605@gmail.com 
 **GitHub:** https://github.com/lowedigital
+**Web:** https://lowedigital.github.io
 
 ---
 
