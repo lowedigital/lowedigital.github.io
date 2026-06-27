@@ -4,27 +4,24 @@
 
 'use strict';
 
-/* ── NAV: scroll behaviour & mobile menu ─────────────── */
+/* ── NAV ──────────────────────────────────────────────── */
 (function initNav() {
-  const nav       = document.getElementById('nav');
-  const hamburger = document.getElementById('hamburger');
-  const mobileMenu= document.getElementById('mobileMenu');
+  const nav        = document.getElementById('nav');
+  const hamburger  = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
 
-  // Scroll-to-sticky
   function onScroll() {
     nav.classList.toggle('scrolled', window.scrollY > 20);
   }
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
-  // Hamburger toggle
   hamburger.addEventListener('click', () => {
     const open = hamburger.classList.toggle('open');
     mobileMenu.classList.toggle('open', open);
     document.body.style.overflow = open ? 'hidden' : '';
   });
 
-  // Close mobile menu on link click
   mobileMenu.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
       hamburger.classList.remove('open');
@@ -33,23 +30,21 @@
     });
   });
 
-  // Smooth-scroll for ALL anchor links
+  // Smooth scroll for all anchor links
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
       const target = document.querySelector(a.getAttribute('href'));
       if (!target) return;
       e.preventDefault();
-      const offset = 72; // nav height
-      const top = target.getBoundingClientRect().top + window.scrollY - offset;
+      const top = target.getBoundingClientRect().top + window.scrollY - 72;
       window.scrollTo({ top, behavior: 'smooth' });
     });
   });
 
-  // Active nav link highlight on scroll
+  // Active nav highlight
   const sections = document.querySelectorAll('section[id]');
   const navLinks  = document.querySelectorAll('.nav__links a[href^="#"]');
-
-  const linkMap = {};
+  const linkMap   = {};
   navLinks.forEach(l => { linkMap[l.getAttribute('href').slice(1)] = l; });
 
   function updateActiveLink() {
@@ -64,10 +59,25 @@
 })();
 
 
-/* ── SCROLL-REVEAL animation ─────────────────────────── */
+/* ── FLOATING CTA ─────────────────────────────────────── */
+(function initFloatingCta() {
+  const btn = document.getElementById('floatingCta');
+  if (!btn) return;
+  let shown = false;
+
+  window.addEventListener('scroll', () => {
+    const show = window.scrollY > window.innerHeight * 0.6;
+    if (show === shown) return;
+    shown = show;
+    btn.classList.toggle('visible', show);
+  }, { passive: true });
+})();
+
+
+/* ── SCROLL-REVEAL ────────────────────────────────────── */
 (function initReveal() {
-  const fadeEls   = document.querySelectorAll('.fade-up, .reveal');
-  if (!fadeEls.length) return;
+  const els = document.querySelectorAll('.fade-up, .reveal');
+  if (!els.length) return;
 
   const io = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -76,9 +86,37 @@
         io.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-  fadeEls.forEach(el => io.observe(el));
+  els.forEach(el => io.observe(el));
+})();
+
+
+/* ── FAQ ACCORDION ────────────────────────────────────── */
+(function initFaq() {
+  const items = document.querySelectorAll('.faq-item');
+
+  items.forEach(item => {
+    const btn    = item.querySelector('.faq-item__question');
+    const answer = item.querySelector('.faq-item__answer');
+    if (!btn || !answer) return;
+
+    btn.addEventListener('click', () => {
+      const isOpen = btn.getAttribute('aria-expanded') === 'true';
+
+      // Close all others
+      items.forEach(other => {
+        other.querySelector('.faq-item__question').setAttribute('aria-expanded', 'false');
+        other.querySelector('.faq-item__answer').classList.remove('open');
+      });
+
+      // Toggle this one
+      if (!isOpen) {
+        btn.setAttribute('aria-expanded', 'true');
+        answer.classList.add('open');
+      }
+    });
+  });
 })();
 
 
@@ -90,37 +128,33 @@
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
-
     const btn     = form.querySelector('button[type="submit"]');
     const btnText = btn.querySelector('.btn-text');
     const original = btnText.textContent;
 
-    // Loading state
     btn.disabled = true;
     btnText.textContent = 'Sending…';
     btn.style.opacity = '0.75';
 
-    // Simulate async send (replace with your real endpoint or Formspree)
+    // Replace with Formspree / Netlify Forms endpoint for production
     await new Promise(r => setTimeout(r, 1200));
 
-    // Success state
     btn.style.display = 'none';
     success.classList.add('show');
     form.reset();
 
-    // Reset after 6s
     setTimeout(() => {
       btn.disabled = false;
       btn.style.opacity = '';
       btn.style.display = '';
       btnText.textContent = original;
       success.classList.remove('show');
-    }, 6000);
+    }, 7000);
   });
 })();
 
 
-/* ── CURSOR GLOW on service/project cards ────────────── */
+/* ── CARD GLOW (cursor-track) ─────────────────────────── */
 (function initCardGlow() {
   const cards = document.querySelectorAll('.service-card, .project-card');
 
@@ -129,94 +163,70 @@
       const rect = card.getBoundingClientRect();
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
-      card.style.setProperty('--mouse-x', `${x}px`);
-      card.style.setProperty('--mouse-y', `${y}px`);
-      card.style.background = `
-        radial-gradient(300px circle at ${x}px ${y}px, rgba(59,130,246,0.05) 0%, transparent 60%),
-        var(--bg-card-h)
-      `;
+      card.style.background = `radial-gradient(300px circle at ${x}px ${y}px, rgba(59,130,246,0.05) 0%, transparent 60%), var(--bg-card-h)`;
     });
-    card.addEventListener('mouseleave', () => {
-      card.style.background = '';
-    });
+    card.addEventListener('mouseleave', () => { card.style.background = ''; });
   });
 })();
 
 
-/* ── HERO PARALLAX (subtle) ───────────────────────────── */
+/* ── HERO PARALLAX ────────────────────────────────────── */
 (function initParallax() {
   const orb1 = document.querySelector('.hero__orb--1');
   const orb2 = document.querySelector('.hero__orb--2');
   if (!orb1 || !orb2) return;
-
   let ticking = false;
   window.addEventListener('scroll', () => {
-    if (!ticking) {
-      requestAnimationFrame(() => {
-        const y = window.scrollY;
-        orb1.style.transform = `translate(${y * 0.04}px, ${y * -0.06}px)`;
-        orb2.style.transform = `translate(${y * -0.03}px, ${y * 0.04}px)`;
-        ticking = false;
-      });
-      ticking = true;
-    }
+    if (ticking) return;
+    requestAnimationFrame(() => {
+      const y = window.scrollY;
+      orb1.style.transform = `translate(${y * 0.04}px, ${y * -0.06}px)`;
+      orb2.style.transform = `translate(${y * -0.03}px, ${y * 0.04}px)`;
+      ticking = false;
+    });
+    ticking = true;
   }, { passive: true });
 })();
 
 
-/* ── NUMBER COUNTER animation in hero proof ──────────── */
+/* ── COUNTER ANIMATION ────────────────────────────────── */
 (function initCounters() {
-  const proofSection = document.querySelector('.hero__social-proof');
-  if (!proofSection) return;
-
-  const numbers = proofSection.querySelectorAll('.proof-number');
-  const targets = ['15+', '100%', '48hr'];
-  const finals  = [15, 100, 48];
+  const proof = document.querySelector('.hero__social-proof');
+  if (!proof) return;
+  const numbers  = proof.querySelectorAll('.proof-number');
+  const finals   = [15, 100, 48];
   const suffixes = ['+', '%', 'hr'];
-  let animated = false;
+  const targets  = ['15+', '100%', '48hr'];
+  let animated   = false;
 
-  const io = new IntersectionObserver(entries => {
+  new IntersectionObserver(entries => {
     if (!entries[0].isIntersecting || animated) return;
     animated = true;
-
     numbers.forEach((el, i) => {
-      const end = finals[i];
-      const suffix = suffixes[i];
-      let start = 0;
-      const dur = 1200;
-      const step = dur / end;
-
+      let n = 0;
+      const step = 1200 / finals[i];
       const tick = () => {
-        start++;
-        el.textContent = start + suffix;
-        if (start < end) setTimeout(tick, step);
+        n++;
+        el.textContent = n + suffixes[i];
+        if (n < finals[i]) setTimeout(tick, step);
         else el.textContent = targets[i];
       };
       setTimeout(tick, i * 120);
     });
-
-    io.disconnect();
-  }, { threshold: 0.5 });
-
-  io.observe(proofSection);
+  }, { threshold: 0.5 }).observe(proof);
 })();
 
 
-/* ── TILT effect on project cards ────────────────────── */
+/* ── PROJECT CARD TILT ────────────────────────────────── */
 (function initTilt() {
-  // Only on non-touch devices
   if (window.matchMedia('(hover: none)').matches) return;
+  const MAX = 4;
 
-  const cards = document.querySelectorAll('.project-card');
-  const MAX   = 5; // degrees
-
-  cards.forEach(card => {
+  document.querySelectorAll('.project-card').forEach(card => {
     card.addEventListener('mousemove', e => {
       const rect = card.getBoundingClientRect();
-      const cx   = rect.left + rect.width / 2;
-      const cy   = rect.top  + rect.height / 2;
-      const dx   = (e.clientX - cx) / (rect.width  / 2);
-      const dy   = (e.clientY - cy) / (rect.height / 2);
+      const dx = (e.clientX - rect.left - rect.width  / 2) / (rect.width  / 2);
+      const dy = (e.clientY - rect.top  - rect.height / 2) / (rect.height / 2);
       card.style.transform = `translateY(-4px) rotateY(${dx * MAX}deg) rotateX(${-dy * MAX}deg)`;
       card.style.transition = 'transform 0.1s ease';
     });
