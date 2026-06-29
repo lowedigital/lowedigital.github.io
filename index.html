@@ -1354,22 +1354,56 @@ input, textarea, select { font: inherit; }
 .modal__footer {
   padding: 24px 32px 32px;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 24px;
 }
-.modal__footer p {
+.modal__cs { display: flex; flex-direction: column; gap: 20px; }
+.modal__cs-section { display: flex; flex-direction: column; gap: 8px; }
+.modal__cs-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--blue-bright);
+}
+.modal__cs p {
   font-size: 14px;
   color: var(--text-2);
-  line-height: 1.6;
-  max-width: 480px;
+  line-height: 1.65;
+}
+.modal__cs-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.modal__cs-list { list-style: none; display: flex; flex-direction: column; gap: 5px; }
+.modal__cs-list li {
+  font-size: 14px;
+  color: var(--text-2);
+  padding-left: 18px;
+  position: relative;
+  line-height: 1.5;
+}
+.modal__cs-list li::before {
+  content: '\2192';
+  position: absolute;
+  left: 0;
+  color: var(--blue-bright);
+  font-size: 12px;
+  top: 2px;
+}
+.modal__cs-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.modal__cs-tags span {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--cyan);
+  background: rgba(34,211,238,0.08);
+  border: 1px solid rgba(34,211,238,0.25);
+  border-radius: 100px;
+  padding: 4px 12px;
 }
 
 @media (max-width: 600px) {
   .modal__header { padding: 24px 20px 16px; }
   .modal__img-wrap { margin: 0 12px; }
-  .modal__footer { padding: 20px; flex-direction: column; align-items: flex-start; }
+  .modal__footer { padding: 20px; }
+  .modal__cs-row { grid-template-columns: 1fr; }
 }
   </style>
 </head>
@@ -1391,7 +1425,6 @@ input, textarea, select { font: inherit; }
       <ul class="nav__links">
         <li><a href="#services">Services</a></li>
         <li><a href="#projects">Work</a></li>
-        <li><a href="#testimonials">Reviews</a></li>
         <li><a href="#faq">FAQ</a></li>
         <li><a href="#contact" class="nav__cta">Get a Free Quote</a></li>
       </ul>
@@ -1403,7 +1436,6 @@ input, textarea, select { font: inherit; }
       <ul>
         <li><a href="#services">Services</a></li>
         <li><a href="#projects">Work</a></li>
-        <li><a href="#testimonials">Reviews</a></li>
         <li><a href="#faq">FAQ</a></li>
         <li><a href="#contact">Get a Free Quote</a></li>
       </ul>
@@ -1425,22 +1457,22 @@ input, textarea, select { font: inherit; }
         Currently Available for New Projects
       </div>
       <h1 class="hero__headline fade-up">
-        Your website should be<br />
-        bringing in customers.<br />
-        <span class="gradient-text">Let's make that happen.</span>
+        Digital systems that help<br />
+        businesses run better<br />
+        <span class="gradient-text">and grow faster.</span>
       </h1>
       <p class="hero__sub fade-up">
-        I build websites and digital systems that help small businesses get more customers,
-        waste less time, and compete online — without the cost of a full agency.
+        I design and build websites, automation systems, and internal tools that improve
+        operations, attract customers, and remove manual work.
       </p>
       <div class="hero__actions fade-up">
         <a href="#contact" class="btn btn--primary">
           Get a Free Consultation
           <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
-        <a href="#projects" class="btn btn--ghost">See My Work</a>
+        <a href="#projects" class="btn btn--ghost">View Case Studies</a>
       </div>
-      <p class="hero__guarantee fade-up">No contracts. No upfront payment. Free consultation call.</p>
+      <p class="hero__guarantee fade-up">Built for small and growing businesses that need better systems, not just better websites.</p>
       <div class="hero__social-proof fade-up">
         <div class="proof-item">
           <span class="proof-number">15+</span>
@@ -1469,20 +1501,19 @@ input, textarea, select { font: inherit; }
       <div class="about__grid">
         <div class="about__left reveal">
           <div class="section-label">About</div>
-          <h2 class="section-title">Most small business websites don't actually work.</h2>
+          <h2 class="section-title">Most businesses don't have a website problem. They have a systems problem.</h2>
         </div>
         <div class="about__right reveal">
           <p class="about__body">
-            I'm Caleb Lowe — a digital builder who works directly with small business owners and
-            entrepreneurs to create websites, automation systems, and digital tools that drive
-            real, measurable results. I started Lowe Digital because I kept seeing the same problem:
-            businesses with great products losing customers online simply because their digital
-            presence didn't show up when it mattered.
+            I build digital systems that replace manual, fragmented business processes with
+            structured, automated workflows. I'm Caleb Lowe — I work directly with small business
+            owners and entrepreneurs to design websites, internal tools, and automation systems
+            focused on operations and customer acquisition.
           </p>
           <p class="about__body">
-            If your website is hard to find on Google, looks outdated on mobile, or doesn't clearly
-            tell visitors what to do — you're losing customers every day to competitors with a
-            better online presence. I fix that, fast, and without the agency overhead.
+            My goal on every project is clarity, speed, and measurable improvement. Whether
+            that's a conversion-optimized website, a lead pipeline, or an internal dashboard —
+            the work is done with systems thinking, not just design thinking.
           </p>
           <div class="about__pillars">
             <div class="pillar">
@@ -1490,8 +1521,8 @@ input, textarea, select { font: inherit; }
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </div>
               <div>
-                <strong>Live in 1–2 weeks</strong>
-                <p>Not months. Most projects go from kickoff to launch in under 14 days.</p>
+                <strong>Operational clarity</strong>
+                <p>Every system is built to reduce friction and give you a single, structured view of what matters.</p>
               </div>
             </div>
             <div class="pillar">
@@ -1499,8 +1530,8 @@ input, textarea, select { font: inherit; }
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </div>
               <div>
-                <strong>Focused on leads, not just looks</strong>
-                <p>Pretty doesn't pay the bills. Everything I build is designed to drive action.</p>
+                <strong>Outcomes, not deliverables</strong>
+                <p>I measure success by what changes in your business — not by what I shipped.</p>
               </div>
             </div>
             <div class="pillar">
@@ -1508,8 +1539,8 @@ input, textarea, select { font: inherit; }
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </div>
               <div>
-                <strong>Affordable for small businesses</strong>
-                <p>Quality work without the agency overhead. You pay for the work, not the brand.</p>
+                <strong>Built to scale</strong>
+                <p>Systems are designed modular so they grow with your business instead of getting replaced.</p>
               </div>
             </div>
           </div>
@@ -1522,9 +1553,9 @@ input, textarea, select { font: inherit; }
   <section class="services" id="services">
     <div class="container">
       <div class="section-header reveal">
-        <div class="section-label">What I Do</div>
-        <h2 class="section-title">Exactly what your business needs to grow online.</h2>
-        <p class="section-sub">Pick one service or all five — each one is designed to get you a clear, measurable result.</p>
+        <div class="section-label">What I Build</div>
+        <h2 class="section-title">Systems for every layer of your business.</h2>
+        <p class="section-sub">Each service is built around a specific operational or growth outcome — not just a deliverable.</p>
       </div>
       <div class="services__grid">
 
@@ -1535,8 +1566,8 @@ input, textarea, select { font: inherit; }
             </svg>
           </div>
           <h3>Website Design &amp; Development</h3>
-          <p class="service-card__outcome">You get a professional website that loads fast, looks great on every device, and is built to turn visitors into leads.</p>
-          <p class="service-card__detail">Perfect if your current site looks outdated, you built it yourself and it's not converting, or you don't have a website at all yet.</p>
+          <p class="service-card__outcome">A high-conversion website designed to turn visitors into customers — not just a digital brochure.</p>
+          <p class="service-card__detail">Built with clear structure, fast load times, and a deliberate user flow. Every element serves the goal of getting someone to contact you.</p>
           <div class="service-card__tags">
             <span>HTML/CSS/JS</span><span>Mobile-First</span><span>SEO-Ready</span>
           </div>
@@ -1549,8 +1580,8 @@ input, textarea, select { font: inherit; }
             </svg>
           </div>
           <h3>Business Automation Systems</h3>
-          <p class="service-card__outcome">You stop doing repetitive tasks by hand — quotes, follow-ups, scheduling, data entry — and get that time back every week.</p>
-          <p class="service-card__detail">Ideal if you're doing the same manual task more than 3 times a week, or if things fall through the cracks when you're busy.</p>
+          <p class="service-card__outcome">Automated workflows that remove repetitive manual tasks from your operations entirely.</p>
+          <p class="service-card__detail">Quotes, follow-ups, scheduling, data entry — if you're doing it by hand more than twice a week, it can be automated. I design and build the system so it runs without you.</p>
           <div class="service-card__tags">
             <span>Zapier</span><span>Make.com</span><span>APIs</span>
           </div>
@@ -1563,8 +1594,8 @@ input, textarea, select { font: inherit; }
             </svg>
           </div>
           <h3>AI Tools &amp; Integrations</h3>
-          <p class="service-card__outcome">You get AI working inside your business — answering customer questions, qualifying leads, or handling tasks that used to take hours.</p>
-          <p class="service-card__detail">Good fit if you want to move faster without hiring more staff, or if customers ask the same questions over and over.</p>
+          <p class="service-card__outcome">AI tools embedded into your workflow to handle customer interactions, qualify leads, and reduce manual decision-making.</p>
+          <p class="service-card__detail">These aren't novelty integrations — they're practical tools that replace specific manual tasks so your team can focus on higher-value work.</p>
           <div class="service-card__tags">
             <span>ChatGPT API</span><span>Chatbots</span><span>Automation</span>
           </div>
@@ -1577,8 +1608,8 @@ input, textarea, select { font: inherit; }
             </svg>
           </div>
           <h3>Branding &amp; Digital Setup</h3>
-          <p class="service-card__outcome">You get a consistent, professional look across your website, social profiles, and printed materials — so customers take you seriously from the start.</p>
-          <p class="service-card__detail">Great for new businesses, or established ones that have outgrown their original branding.</p>
+          <p class="service-card__outcome">A consistent, professional identity across every customer-facing surface — website, social, and print.</p>
+          <p class="service-card__detail">Branding is a system too. I build it to be cohesive and scalable so your business looks the same everywhere customers encounter it.</p>
           <div class="service-card__tags">
             <span>Logo</span><span>Brand Kit</span><span>Social Profiles</span>
           </div>
@@ -1591,8 +1622,8 @@ input, textarea, select { font: inherit; }
             </svg>
           </div>
           <h3>SEO &amp; Local Search Visibility</h3>
-          <p class="service-card__outcome">You show up when local customers search for what you offer — so you get found without paying for ads every month.</p>
-          <p class="service-card__detail">Essential if your competitors are showing up on Google and you're not, or if most of your customers come from word of mouth and you want to change that.</p>
+          <p class="service-card__outcome">An organic search presence that puts your business in front of local customers without ongoing ad spend.</p>
+          <p class="service-card__detail">I set up the technical and content foundation that gets you found — Google Business, on-page structure, local signals — so discovery becomes a system, not a one-off.</p>
           <div class="service-card__tags">
             <span>Local SEO</span><span>Google Business</span><span>On-Page SEO</span>
           </div>
@@ -1610,9 +1641,9 @@ input, textarea, select { font: inherit; }
   <section class="projects" id="projects">
     <div class="container">
       <div class="section-header reveal">
-        <div class="section-label">Real Work</div>
-        <h2 class="section-title">What this actually looks like in practice.</h2>
-        <p class="section-sub">Real projects with real outcomes — built for real businesses.</p>
+        <div class="section-label">Selected Systems</div>
+        <h2 class="section-title">Operational systems built for real businesses.</h2>
+        <p class="section-sub">Each project replaced a fragmented manual process with a structured, scalable system.</p>
       </div>
       <div class="projects__grid">
 
@@ -1662,8 +1693,8 @@ input, textarea, select { font: inherit; }
   <section class="cta-strip">
     <div class="container cta-strip__inner reveal">
       <div class="cta-strip__text">
-        <h3>Ready to stop losing customers to competitors?</h3>
-        <p>The first conversation is free. Tell me what's not working and I'll tell you how to fix it.</p>
+        <h3>Ready to replace manual processes with systems that work?</h3>
+        <p>The first conversation is free. Describe your problem and I'll tell you exactly how I'd solve it.</p>
       </div>
       <a href="#contact" class="btn btn--primary">
         Book a Free Call
@@ -1672,69 +1703,13 @@ input, textarea, select { font: inherit; }
     </div>
   </section>
 
-  <!-- ─── TESTIMONIALS ──────────────────────────────────────── -->
-  <section class="testimonials" id="testimonials">
-    <div class="container">
-      <div class="section-header reveal">
-        <div class="section-label">Client Reviews</div>
-        <h2 class="section-title">Don't take my word for it.</h2>
-        <p class="section-sub">Here's what business owners say after working together.</p>
-      </div>
-      <div class="testimonials__grid">
-
-        <div class="testimonial-card reveal">
-          <div class="testimonial-card__stars">★★★★★</div>
-          <blockquote>
-            "We had a website that was costing us business and we didn't even realize it. Caleb rebuilt it from scratch in two weeks, and within the first month we were getting consistent quote requests through the site. It paid for itself fast."
-          </blockquote>
-          <div class="testimonial-card__author">
-            <div class="testimonial-card__avatar">MR</div>
-            <div>
-              <strong>Mike R.</strong>
-              <span>Owner, MR Roofing &amp; Exteriors</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="testimonial-card reveal">
-          <div class="testimonial-card__stars">★★★★★</div>
-          <blockquote>
-            "I was doing the same intake process by hand for every new client — it was eating an hour every time. Caleb automated the whole thing in a week. Now new clients get onboarded without me touching anything. Game changer."
-          </blockquote>
-          <div class="testimonial-card__author">
-            <div class="testimonial-card__avatar">SL</div>
-            <div>
-              <strong>Sarah L.</strong>
-              <span>Founder, Clarity Financial Coaching</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="testimonial-card reveal">
-          <div class="testimonial-card__stars">★★★★★</div>
-          <blockquote>
-            "We were invisible on Google. I didn't think a small shop like ours could compete. Caleb set up our website and Google profile correctly and we started showing up in searches we never appeared in before. Phone's been busier ever since."
-          </blockquote>
-          <div class="testimonial-card__author">
-            <div class="testimonial-card__avatar">JT</div>
-            <div>
-              <strong>James T.</strong>
-              <span>Co-owner, The Corner Kitchen</span>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
   <!-- ─── PROCESS ───────────────────────────────────────────── -->
   <section class="process" id="process">
     <div class="container">
       <div class="section-header reveal">
         <div class="section-label">How It Works</div>
-        <h2 class="section-title">Simple, transparent, and fast.</h2>
-        <p class="section-sub">From first conversation to going live — here's exactly what to expect.</p>
+        <h2 class="section-title">Four steps from problem to working system.</h2>
+        <p class="section-sub">No surprises, no delays. Here's exactly how every engagement runs.</p>
       </div>
       <div class="process__steps">
 
@@ -1747,8 +1722,8 @@ input, textarea, select { font: inherit; }
                 <path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </div>
-            <h3>Free Consultation</h3>
-            <p>We hop on a 30-minute call. You tell me what's not working. I tell you what I'd do to fix it and what it would cost. No pressure, no pitch.</p>
+            <h3>Understand the Problem</h3>
+            <p>We talk through what's broken, slow, or missing in your current operation. I ask the right questions to understand the problem before proposing anything.</p>
           </div>
         </div>
 
@@ -1761,8 +1736,8 @@ input, textarea, select { font: inherit; }
                 <path d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </div>
-            <h3>Plan &amp; Design</h3>
-            <p>I send a clear proposal with scope, timeline, and price. Once we agree, I design the solution and show you exactly what you'll be getting before I build it.</p>
+            <h3>Design the System</h3>
+            <p>I propose a clear solution with defined scope, timeline, and price. You see exactly what's being built before any work starts — no surprises mid-project.</p>
           </div>
         </div>
 
@@ -1775,8 +1750,8 @@ input, textarea, select { font: inherit; }
                 <path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </div>
-            <h3>Build</h3>
-            <p>I build it. You can see progress as it comes together and give feedback. Most projects are done in 1–2 weeks. No months-long waits.</p>
+            <h3>Build &amp; Iterate</h3>
+            <p>I build in focused sprints with visible progress. You give feedback as it comes together. Most systems are complete in 1–2 weeks — not months.</p>
           </div>
         </div>
 
@@ -1789,7 +1764,7 @@ input, textarea, select { font: inherit; }
               </svg>
             </div>
             <h3>Launch &amp; Support</h3>
-            <p>We go live. I handle the technical side of launching. After that, I'm still available — if something needs updating or you want to improve it, just ask.</p>
+            <p>I handle the full technical launch. After go-live, I remain available for updates, improvements, and any new systems you need as the business grows.</p>
           </div>
         </div>
 
@@ -1876,10 +1851,10 @@ input, textarea, select { font: inherit; }
       <div class="contact__grid">
         <div class="contact__left reveal">
           <div class="section-label">Get Started</div>
-          <h2 class="section-title">Let's talk about what your business actually needs.</h2>
+          <h2 class="section-title">What system does your business need built?</h2>
           <p class="contact__body">
-            Fill out the form and I'll get back to you within 48 hours with thoughts on your
-            situation — or just book a free 30-minute call and we can talk through it live.
+            Tell me the business problem you're trying to solve. I'll get back to you within
+            48 hours with a clear take on what I'd build and what it would cost.
           </p>
           <div class="contact__trust">
             <div class="trust-item">
@@ -1929,7 +1904,7 @@ input, textarea, select { font: inherit; }
               <input type="text" id="business" name="business" placeholder="e.g. Smith Plumbing — local contractor" />
             </div>
             <div class="form-group">
-              <label for="service">What do you need help with?</label>
+              <label for="service">What type of system do you need?</label>
               <select id="service" name="service">
                 <option value="" disabled selected>Select a service...</option>
                 <option value="website">Website Design &amp; Development</option>
@@ -1941,8 +1916,8 @@ input, textarea, select { font: inherit; }
               </select>
             </div>
             <div class="form-group">
-              <label for="message">What's the main problem you're trying to solve?</label>
-              <textarea id="message" name="message" rows="4" placeholder="e.g. My website looks outdated and I'm not getting any leads from it. Competitors are ranking on Google and I'm not showing up at all." required></textarea>
+              <label for="message">What business problem are you trying to solve?</label>
+              <textarea id="message" name="message" rows="4" placeholder="e.g. We track client renewals manually in spreadsheets and things fall through the cracks. Or: our website isn't generating leads and we don't know why." required></textarea>
             </div>
             <button type="submit" class="btn btn--primary btn--full" id="submitBtn">
               <span class="btn-text">Send My Message</span>
@@ -1969,12 +1944,12 @@ input, textarea, select { font: inherit; }
           <img src="logo.png" alt="Lowe Digital logo" class="logo-img" />
           <span class="logo-text">Lowe Digital</span>
         </a>
-        <p>Building Solutions. Creating Impact.</p>
+        <p>Digital systems for businesses that want to run better and grow faster.</p>
       </div>
       <nav class="footer__nav">
         <a href="#services">Services</a>
         <a href="#projects">Work</a>
-        <a href="#testimonials">Reviews</a>
+        <a href="#process">Process</a>
         <a href="#faq">FAQ</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -1998,7 +1973,54 @@ input, textarea, select { font: inherit; }
         <img src="meridian.png" alt="Meridian Acquisition Funnel screenshot" loading="lazy" />
       </div>
       <div class="modal__footer">
-        <p>A multi-step digital funnel that identifies, qualifies, and converts motivated sellers — giving Carlowe Properties a repeatable, automated pipeline for sourcing off-market deals at scale.</p>
+        <div class="modal__cs">
+          <div class="modal__cs-section">
+            <h4 class="modal__cs-label">Overview</h4>
+            <p>Meridian is a web-based business system designed to streamline internal operations and improve how information is organized, accessed, and acted on. The focus of this build was clarity, speed, and reducing friction in everyday workflows.</p>
+          </div>
+          <div class="modal__cs-row">
+            <div class="modal__cs-section">
+              <h4 class="modal__cs-label">Problem</h4>
+              <p>Most small business workflows rely on scattered tools, inconsistent tracking, and manual processes. This creates:</p>
+              <ul class="modal__cs-list">
+                <li>Lost or duplicated information</li>
+                <li>Slow decision-making</li>
+                <li>No centralized operational view</li>
+              </ul>
+            </div>
+            <div class="modal__cs-section">
+              <h4 class="modal__cs-label">Solution</h4>
+              <p>Meridian was built as a clean, dashboard-style interface focused on operational efficiency. It prioritizes usability over complexity, ensuring users can understand and act quickly.</p>
+              <ul class="modal__cs-list">
+                <li>Centralized dashboard for key business data</li>
+                <li>Structured layout for fast information scanning</li>
+                <li>Modular UI components for scalability</li>
+                <li>Simplified navigation to reduce cognitive load</li>
+              </ul>
+            </div>
+          </div>
+          <div class="modal__cs-section">
+            <h4 class="modal__cs-label">Key Features</h4>
+            <div class="modal__cs-tags">
+              <span>Unified dashboard view</span>
+              <span>Simplified navigation</span>
+              <span>Modular layout</span>
+              <span>Fast, lightweight interface</span>
+            </div>
+          </div>
+          <div class="modal__cs-section">
+            <h4 class="modal__cs-label">Outcome</h4>
+            <p>Meridian demonstrates how structured UI design can replace fragmented workflows with a single operational hub. The system is designed to scale with additional features as business needs grow.</p>
+          </div>
+          <div class="modal__cs-section">
+            <h4 class="modal__cs-label">Tech Focus</h4>
+            <div class="modal__cs-tags">
+              <span>Frontend UI architecture</span>
+              <span>Component-based layout design</span>
+              <span>Responsive interface structure</span>
+            </div>
+          </div>
+        </div>
         <a href="#contact" class="btn btn--primary modal-contact-link">Build Something Similar →</a>
       </div>
     </div>
@@ -2017,7 +2039,55 @@ input, textarea, select { font: inherit; }
         <img src="zenfield.png" alt="Zenfield Insurance Dashboard screenshot" loading="lazy" />
       </div>
       <div class="modal__footer">
-        <p>A centralized operations dashboard giving Carlowe Insurance real-time visibility across their entire book of business — policy status, renewal timelines, client activity, and automated alerts so nothing slips through.</p>
+        <div class="modal__cs">
+          <div class="modal__cs-section">
+            <h4 class="modal__cs-label">Overview</h4>
+            <p>Zenfield is a modern digital interface concept focused on simplicity, clarity, and distraction-free user experience. It explores how minimal design can still support powerful functionality without overwhelming the user.</p>
+          </div>
+          <div class="modal__cs-row">
+            <div class="modal__cs-section">
+              <h4 class="modal__cs-label">Problem</h4>
+              <p>Many modern interfaces suffer from:</p>
+              <ul class="modal__cs-list">
+                <li>Overloaded dashboards</li>
+                <li>Too many competing visual elements</li>
+                <li>Poor focus on primary actions</li>
+              </ul>
+              <p style="margin-top:8px;">The goal was to create a calm, structured digital environment with intentional design.</p>
+            </div>
+            <div class="modal__cs-section">
+              <h4 class="modal__cs-label">Solution</h4>
+              <p>Zenfield was designed around a minimal UI philosophy where every element has a purpose.</p>
+              <ul class="modal__cs-list">
+                <li>Reduced visual noise</li>
+                <li>Strong spacing and hierarchy</li>
+                <li>Clear focus on primary actions</li>
+                <li>Lightweight layout system</li>
+              </ul>
+            </div>
+          </div>
+          <div class="modal__cs-section">
+            <h4 class="modal__cs-label">Key Features</h4>
+            <div class="modal__cs-tags">
+              <span>Minimal UI system</span>
+              <span>Focus-first layout</span>
+              <span>Clean grid structure</span>
+              <span>Lightweight interface</span>
+            </div>
+          </div>
+          <div class="modal__cs-section">
+            <h4 class="modal__cs-label">Outcome</h4>
+            <p>Zenfield serves as a design exploration into calm interfaces — showing how simplicity can improve usability, focus, and perceived quality. It functions as both a portfolio piece and a design direction prototype.</p>
+          </div>
+          <div class="modal__cs-section">
+            <h4 class="modal__cs-label">Tech Focus</h4>
+            <div class="modal__cs-tags">
+              <span>UI/UX layout design</span>
+              <span>Visual hierarchy systems</span>
+              <span>Minimal interface architecture</span>
+            </div>
+          </div>
+        </div>
         <a href="#contact" class="btn btn--primary modal-contact-link">Build Something Similar →</a>
       </div>
     </div>
