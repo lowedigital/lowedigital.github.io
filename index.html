@@ -1248,6 +1248,129 @@ input, textarea, select { font: inherit; }
   .hero__social-proof { gap: 16px; }
   .proof-divider { display: none; }
 }
+
+/* ── MODALS ───────────────────────────────────────────── */
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.modal.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(4, 6, 10, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.modal__box {
+  position: relative;
+  z-index: 1;
+  background: var(--bg-card);
+  border: 1px solid var(--border-h);
+  border-radius: 20px;
+  width: 100%;
+  max-width: 860px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 32px 80px rgba(0,0,0,0.7), 0 0 0 1px var(--border-h);
+  transform: translateY(20px) scale(0.97);
+  transition: transform 0.3s cubic-bezier(0.4,0,0.2,1);
+}
+.modal.open .modal__box {
+  transform: translateY(0) scale(1);
+}
+
+.modal__close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 2;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid var(--border);
+  color: var(--text-2);
+  font-size: 20px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--trans);
+}
+.modal__close:hover {
+  background: rgba(255,255,255,0.12);
+  color: var(--text-1);
+  border-color: var(--border-h);
+}
+
+.modal__header {
+  padding: 32px 32px 20px;
+}
+.modal__client {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--blue-bright);
+  margin-bottom: 8px;
+}
+.modal__header h3 {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--text-1);
+  letter-spacing: -0.02em;
+}
+
+.modal__img-wrap {
+  position: relative;
+  margin: 0 20px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--bg-2);
+  line-height: 0;
+}
+.modal__img-wrap img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+}
+
+.modal__footer {
+  padding: 24px 32px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.modal__footer p {
+  font-size: 14px;
+  color: var(--text-2);
+  line-height: 1.6;
+  max-width: 480px;
+}
+
+@media (max-width: 600px) {
+  .modal__header { padding: 24px 20px 16px; }
+  .modal__img-wrap { margin: 0 12px; }
+  .modal__footer { padding: 20px; flex-direction: column; align-items: flex-start; }
+}
   </style>
 </head>
 <body>
@@ -1509,7 +1632,7 @@ input, textarea, select { font: inherit; }
           <div class="project-card__stack">
             <span>HTML/CSS/JS</span><span>CRM Integration</span><span>Make.com</span><span>Lead Scoring</span>
           </div>
-          <a href="#contact" class="btn btn--outline">Interested in something similar? →</a>
+          <button class="btn btn--outline modal-trigger" data-modal="modalMeridian">View Case Study →</button>
         </div>
 
         <div class="project-card reveal">
@@ -1528,7 +1651,7 @@ input, textarea, select { font: inherit; }
           <div class="project-card__stack">
             <span>JavaScript</span><span>REST APIs</span><span>Chart.js</span><span>Automated Alerts</span>
           </div>
-          <a href="#contact" class="btn btn--outline">Build a dashboard for your business →</a>
+          <button class="btn btn--outline modal-trigger" data-modal="modalZenfield">View Case Study →</button>
         </div>
 
       </div>
@@ -1862,6 +1985,44 @@ input, textarea, select { font: inherit; }
     </div>
   </footer>
 
+  <!-- ─── MODAL: MERIDIAN ──────────────────────────────── -->
+  <div class="modal" id="modalMeridian" role="dialog" aria-modal="true" aria-labelledby="modalMeridianTitle">
+    <div class="modal__backdrop"></div>
+    <div class="modal__box">
+      <button class="modal__close" aria-label="Close modal">&#x2715;</button>
+      <div class="modal__header">
+        <div class="modal__client">Carlowe Properties LLC</div>
+        <h3 id="modalMeridianTitle">Meridian Acquisition Funnel</h3>
+      </div>
+      <div class="modal__img-wrap">
+        <img src="meridian.png" alt="Meridian Acquisition Funnel screenshot" loading="lazy" />
+      </div>
+      <div class="modal__footer">
+        <p>A multi-step digital funnel that identifies, qualifies, and converts motivated sellers — giving Carlowe Properties a repeatable, automated pipeline for sourcing off-market deals at scale.</p>
+        <a href="#contact" class="btn btn--primary modal-contact-link">Build Something Similar →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── MODAL: ZENFIELD ───────────────────────────────── -->
+  <div class="modal" id="modalZenfield" role="dialog" aria-modal="true" aria-labelledby="modalZenfieldTitle">
+    <div class="modal__backdrop"></div>
+    <div class="modal__box">
+      <button class="modal__close" aria-label="Close modal">&#x2715;</button>
+      <div class="modal__header">
+        <div class="modal__client">Carlowe Insurance LLC</div>
+        <h3 id="modalZenfieldTitle">Zenfield Insurance Dashboard</h3>
+      </div>
+      <div class="modal__img-wrap">
+        <img src="zenfield.png" alt="Zenfield Insurance Dashboard screenshot" loading="lazy" />
+      </div>
+      <div class="modal__footer">
+        <p>A centralized operations dashboard giving Carlowe Insurance real-time visibility across their entire book of business — policy status, renewal timelines, client activity, and automated alerts so nothing slips through.</p>
+        <a href="#contact" class="btn btn--primary modal-contact-link">Build Something Similar →</a>
+      </div>
+    </div>
+  </div>
+
   <script>
 'use strict';
 
@@ -2048,6 +2209,51 @@ input, textarea, select { font: inherit; }
       setTimeout(tick, i * 120);
     });
   }, { threshold: 0.5 }).observe(proof);
+})();
+
+/* ── MODALS ───────────────────────────────────────────── */
+(function initModals() {
+  const modals = document.querySelectorAll('.modal');
+
+  function openModal(id) {
+    const modal = document.getElementById(id);
+    if (!modal) return;
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    // Focus close button for accessibility
+    const closeBtn = modal.querySelector('.modal__close');
+    if (closeBtn) setTimeout(() => closeBtn.focus(), 50);
+  }
+
+  function closeModal(modal) {
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function closeAllModals() {
+    modals.forEach(m => closeModal(m));
+  }
+
+  // Open via trigger buttons
+  document.querySelectorAll('.modal-trigger').forEach(btn => {
+    btn.addEventListener('click', () => openModal(btn.dataset.modal));
+  });
+
+  // Close via X button or backdrop click
+  modals.forEach(modal => {
+    modal.querySelector('.modal__close').addEventListener('click', () => closeModal(modal));
+    modal.querySelector('.modal__backdrop').addEventListener('click', () => closeModal(modal));
+
+    // Close then scroll to contact when "Build Something Similar" is clicked
+    modal.querySelectorAll('.modal-contact-link').forEach(link => {
+      link.addEventListener('click', () => closeAllModals());
+    });
+  });
+
+  // Close on Escape key
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeAllModals();
+  });
 })();
 
 /* ── PROJECT CARD TILT ────────────────────────────────── */
