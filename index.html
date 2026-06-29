@@ -1457,9 +1457,9 @@ input, textarea, select { font: inherit; }
         Currently Available for New Projects
       </div>
       <h1 class="hero__headline fade-up">
-        Your website should be<br />
-        bringing in customers.<br />
-        <span class="gradient-text">Let's make that happen.</span>
+        Digital systems that help<br />
+        businesses run better<br />
+        <span class="gradient-text">and grow faster.</span>
       </h1>
       <p class="hero__sub fade-up">
         I design and build websites, automation systems, and internal tools that improve
@@ -2210,17 +2210,35 @@ input, textarea, select { font: inherit; }
     btn.disabled = true;
     btnText.textContent = 'Sending…';
     btn.style.opacity = '0.75';
-    await new Promise(r => setTimeout(r, 1200));
-    btn.style.display = 'none';
-    success.classList.add('show');
-    form.reset();
-    setTimeout(() => {
+    try {
+      const res = await fetch('https://formspree.io/f/xvzjqdqv', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(form)
+      });
+      if (res.ok) {
+        btn.style.display = 'none';
+        success.classList.add('show');
+        form.reset();
+        setTimeout(() => {
+          btn.disabled = false;
+          btn.style.opacity = '';
+          btn.style.display = '';
+          btnText.textContent = original;
+          success.classList.remove('show');
+        }, 7000);
+      } else {
+        btnText.textContent = 'Something went wrong — try emailing directly';
+        btn.disabled = false;
+        btn.style.opacity = '';
+        setTimeout(() => { btnText.textContent = original; }, 4000);
+      }
+    } catch (err) {
+      btnText.textContent = 'Network error — try again';
       btn.disabled = false;
       btn.style.opacity = '';
-      btn.style.display = '';
-      btnText.textContent = original;
-      success.classList.remove('show');
-    }, 7000);
+      setTimeout(() => { btnText.textContent = original; }, 4000);
+    }
   });
 })();
 
