@@ -1204,6 +1204,8 @@ input, textarea, select { font: inherit; }
 .services__grid .reveal:nth-child(4) { transition-delay: 0.06s; }
 .services__grid .reveal:nth-child(5) { transition-delay: 0.12s; }
 .projects__grid .reveal:nth-child(2) { transition-delay: 0.1s; }
+.projects__grid .reveal:nth-child(3) { transition-delay: 0.2s; }
+.projects__grid .project-card:nth-child(3) { grid-column: 1 / -1; }
 .testimonials__grid .reveal:nth-child(2) { transition-delay: 0.1s; }
 .testimonials__grid .reveal:nth-child(3) { transition-delay: 0.2s; }
 .process__steps .reveal:nth-child(2) { transition-delay: 0.1s; }
@@ -1457,9 +1459,9 @@ input, textarea, select { font: inherit; }
         Currently Available for New Projects
       </div>
       <h1 class="hero__headline fade-up">
-        Your website should be<br/>
-       bringing in customers.<br/>
-        <span class="gradient-text">Let's make that happen.</span>
+        Digital systems that help<br />
+        businesses run better<br />
+        <span class="gradient-text">and grow faster.</span>
       </h1>
       <p class="hero__sub fade-up">
         I design and build websites, automation systems, and internal tools that improve
@@ -1683,6 +1685,25 @@ input, textarea, select { font: inherit; }
             <span>JavaScript</span><span>REST APIs</span><span>Chart.js</span><span>Automated Alerts</span>
           </div>
           <button class="btn btn--outline modal-trigger" data-modal="modalZenfield">View Case Study →</button>
+        </div>
+
+        <div class="project-card reveal">
+          <div class="project-card__header">
+            <div class="project-card__number">03</div>
+            <div class="project-card__label">Carlowe Properties LLC</div>
+          </div>
+          <h3>Carlowe Properties Website</h3>
+          <p>Carlowe Properties needed a professional web presence that clearly communicated their real estate services, built trust with prospective clients, and generated inbound leads — all without requiring manual upkeep. I designed and built a clean, conversion-focused site that positions the brand, showcases services, and routes inquiries directly into their pipeline.</p>
+          <div class="project-card__impact">
+            <div class="impact-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <span>Delivered a <strong>professional, lead-generating web presence</strong> from scratch</span>
+          </div>
+          <div class="project-card__stack">
+            <span>HTML/CSS/JS</span><span>Mobile-First</span><span>SEO-Ready</span><span>Lead Capture</span>
+          </div>
+          <button class="btn btn--outline modal-trigger" data-modal="modalCarloweWebsite">View Case Study →</button>
         </div>
 
       </div>
@@ -2085,6 +2106,72 @@ input, textarea, select { font: inherit; }
               <span>UI/UX layout design</span>
               <span>Visual hierarchy systems</span>
               <span>Minimal interface architecture</span>
+            </div>
+          </div>
+        </div>
+        <a href="#contact" class="btn btn--primary modal-contact-link">Build Something Similar →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── MODAL: CARLOWE WEBSITE ──────────────────────── -->
+  <div class="modal" id="modalCarloweWebsite" role="dialog" aria-modal="true" aria-labelledby="modalCarloweWebsiteTitle">
+    <div class="modal__backdrop"></div>
+    <div class="modal__box">
+      <button class="modal__close" aria-label="Close modal">&#x2715;</button>
+      <div class="modal__header">
+        <div class="modal__client">Carlowe Properties LLC</div>
+        <h3 id="modalCarloweWebsiteTitle">Carlowe Properties Website</h3>
+      </div>
+      <div class="modal__img-wrap">
+        <img src="carlowe-website.png" alt="Carlowe Properties website screenshot" loading="lazy" />
+      </div>
+      <div class="modal__footer">
+        <div class="modal__cs">
+          <div class="modal__cs-section">
+            <h4 class="modal__cs-label">Overview</h4>
+            <p>Carlowe Properties needed a professional web presence that clearly communicated their real estate services, built trust with prospective clients, and generated inbound leads — all without requiring manual upkeep. The goal was a clean, fast site that positions the brand and routes inquiries directly into their pipeline.</p>
+          </div>
+          <div class="modal__cs-row">
+            <div class="modal__cs-section">
+              <h4 class="modal__cs-label">Problem</h4>
+              <p>Without a dedicated website, Carlowe Properties had no owned digital presence to:</p>
+              <ul class="modal__cs-list">
+                <li>Establish credibility with sellers and investors</li>
+                <li>Capture and qualify inbound leads</li>
+                <li>Differentiate from competitors in the market</li>
+              </ul>
+            </div>
+            <div class="modal__cs-section">
+              <h4 class="modal__cs-label">Solution</h4>
+              <p>I built a conversion-focused site designed to do one thing well: turn visitors into contacts.</p>
+              <ul class="modal__cs-list">
+                <li>Clear service and value proposition messaging</li>
+                <li>Mobile-first, fast-loading design</li>
+                <li>Integrated lead capture form routed to CRM</li>
+                <li>SEO-ready structure for local search visibility</li>
+              </ul>
+            </div>
+          </div>
+          <div class="modal__cs-section">
+            <h4 class="modal__cs-label">Key Features</h4>
+            <div class="modal__cs-tags">
+              <span>Conversion-optimized layout</span>
+              <span>Mobile-first design</span>
+              <span>Lead capture integration</span>
+              <span>Local SEO structure</span>
+            </div>
+          </div>
+          <div class="modal__cs-section">
+            <h4 class="modal__cs-label">Outcome</h4>
+            <p>Carlowe Properties launched with a professional, fully owned web presence that generates inbound leads on autopilot — no ongoing manual effort required. The site is built to scale with additional pages and features as the business grows.</p>
+          </div>
+          <div class="modal__cs-section">
+            <h4 class="modal__cs-label">Tech Focus</h4>
+            <div class="modal__cs-tags">
+              <span>HTML / CSS / JS</span>
+              <span>Responsive layout</span>
+              <span>Form + CRM integration</span>
             </div>
           </div>
         </div>
